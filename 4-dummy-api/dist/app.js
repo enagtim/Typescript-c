@@ -8,11 +8,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+const axios = require('axios');
 function request() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield fetch('https://dummyjson.com/users');
-            const data = response.json();
+            const response = yield axios.get('https://dummyjson.com/users');
+            const data = response.data;
             console.log(data);
         }
         catch (e) {

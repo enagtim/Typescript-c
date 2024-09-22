@@ -1,3 +1,4 @@
+const axios = require('axios');
 interface User {
     address: {
         address: string; 
@@ -68,8 +69,8 @@ interface User {
 }
 async function request(){
     try{
-        const response = await fetch('https://dummyjson.com/users');
-        const data = response.json();
+        const response = await axios.get('https://dummyjson.com/users');
+        const data = response.data;
         console.log(data);
     }catch(e){
         console.error(e);
