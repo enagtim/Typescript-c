@@ -1,5 +1,31 @@
 const axios = require('axios');
-interface User {
+enum GENDER {
+    MALE = 'male', 
+    FEMALE = 'female',
+    OTHER = 'other'
+}
+interface Users {
+    id: number;
+    firstname: string; 
+    lastname: string;
+    maidenName: string; 
+    age: number; 
+    gender: GENDER;
+    email: string; 
+    phone: string;
+    username: string; 
+    password: string;
+    birthDate: string;
+    image: string;
+    bloodGroup: string;
+    height: number; 
+    weight: number;
+    eyeColor: string; 
+    hair: {
+        color: string; 
+        type: string;
+    };
+    ip: string; 
     address: {
         address: string; 
         city: string; 
@@ -11,7 +37,8 @@ interface User {
         state: string;
         stateCode: string; 
     };
-    age: number; 
+    macAddress: string; 
+    university: string; 
     bank: {
         cardExpire: string;
         cardNumber: string;
@@ -19,8 +46,6 @@ interface User {
         currency: string;
         iban: string;
     };
-    birthDate: string;
-    bloodGroup: string;
     company: {
         address:{
         address: string; 
@@ -37,43 +62,31 @@ interface User {
         name: string; 
         title: string; 
     }; 
+    ein: string;
+    ssn: string; 
+    userAgent: string;
     crypto: {
         coin: string;
         network: string; 
         wallet: string;
     };
-    ein: string;
-    email: string;
-    eyeColor: string; 
-    firstname: string; 
-    gender: string;
-    hair: {
-        color: string; 
-        type: string;
-    };
-    height: number; 
-    id: number;
-    image: string;
-    ip: string; 
-    lastname: string;
-    macAddress: string; 
-    maidenName: string; 
-    password: string;
-    phone: string;
     role: string; 
-    ssn: string; 
-    university: string; 
-    userAgent: string;
-    username: string; 
-    weight: number;
 }
-async function request(){
+interface UserResponse{
+    users: Users[],
+    total: number, 
+    skip: number, 
+    limit: number
+}
+async function request(): Promise<UserResponse>{
     try{
         const response = await axios.get('https://dummyjson.com/users');
         const data = response.data;
         console.log(data);
-    }catch(e){
-        console.error(e);
+        return data;
+    }catch(error){
+        console.error(error);
+        throw error;
     }
 };
 request();
