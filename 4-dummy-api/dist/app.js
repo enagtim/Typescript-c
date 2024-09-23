@@ -9,15 +9,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const axios = require('axios');
+var GENDER;
+(function (GENDER) {
+    GENDER["MALE"] = "male";
+    GENDER["FEMALE"] = "female";
+    GENDER["OTHER"] = "other";
+})(GENDER || (GENDER = {}));
 function request() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const response = yield axios.get('https://dummyjson.com/users');
             const data = response.data;
             console.log(data);
+            return data;
         }
-        catch (e) {
-            console.error(e);
+        catch (error) {
+            console.error(error);
+            throw error;
         }
     });
 }
