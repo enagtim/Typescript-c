@@ -1,0 +1,27 @@
+{
+  "name": "4-dummy-api",
+  "version": "1.0.0",
+  "description": "Homework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enagtim/Typescript-c.git"
+  },
+  "author": "Nikita Kaberov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enagtim/Typescript-c/issues"
+  },
+  "homepage": "https://github.com/enagtim/Typescript-c#readme",
+  "dependencies": {
+    "axios": "^1.7.7"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/node": "^22.5.5",
+    "typescript": "^5.6.2"
+  }
+}
