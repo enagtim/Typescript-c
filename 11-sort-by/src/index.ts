@@ -1,4 +1,4 @@
-import sortBy from "sort-by";
+import {sortBy} from "sort-by";
 interface User {
     id: number; 
     name: string; 
